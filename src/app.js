@@ -20,8 +20,19 @@ app.use(express.urlencoded({extended:true,limit:"16kb"}))
 app.use(express.static("public"))
 app.use(cookieParser())
 
+
+
+
 // (err,req,res,next) actually 4 things are there // 
 // \??next is flag for middlewares like you have more than one middleware so one will check then pass the flag to next middleware
+
+
+
+
+//routes are hereeeeeeee
+import userRouter from "./routes/user.routes.js"
+
+app.use("/users",userRouter)   
 
 
 export {app}

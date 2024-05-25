@@ -1,8 +1,8 @@
 //this will createa  fn that will handle all funtion that need async await try catch 
 
 const asyncHandler = (requestHandler)=>{
-    (req,res,next)=>{
-        Promise.resolve(requestHandler(req,res,next)).catch((err)=>next(err))
+  return  (req,res,next)=>{
+         Promise.resolve(requestHandler(req,res,next)).catch((err)=>next(err))
 
     }
 }
