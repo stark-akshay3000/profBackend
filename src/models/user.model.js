@@ -68,7 +68,7 @@ const userSchema = new Schema({
 userSchema.pre("save", async function (next){
     if( !this.isModified("password"))  return next();  //this will prevent updation of pass if someother thing changed---- pass nahe change hua to
     //next me badh jao pass ko kuch mat karo mean ye middleware se return ho le;;```~~~~~~
- this.password =bcrypt.hash(this.password,10)
+ this.password = await bcrypt.hash(this.password,10)
  next();    //this is a middleware which will run pre to save data just before data going to save in db it will run and hash so it need a next flag
 })
 
